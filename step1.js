@@ -3,8 +3,8 @@ const fs = require('fs');
 function cat(path) {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
-      console.error(err);
-      return;
+      console.error(`Error reading ${path} :\n ${err}`);
+      process.exit(1);
     }
     console.log(data);
   });
